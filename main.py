@@ -6,15 +6,15 @@ import shutil
 folder = p.home() / "Downloads"
 wall_folder = folder / "Wallpapers"
 
-if wall_folder.is_dir():
-    pass
-else:
-    wall_folder.mkdir()
-
+wall_folder.mkdir(exist_ok = True)
 
 type = ("*wall.jpg", "*wall.png", "*wall.webp", "*wall.jpeg",)
 
 for t in type:
     for i in folder.glob(t):
-        shutil.move(folder/i, wall_folder)
-        print(i) #if this prints anything, this didnt work
+        shutil.move(i, wall_folder)
+
+#if the following prints anything, this didnt work
+for t in type:
+    for i in folder.glob(t):
+        print(i)
