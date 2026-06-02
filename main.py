@@ -1,14 +1,20 @@
-#we start by praising Allah, subhanuhu wa taala
 #Bismillah, i have no idea what i am doing
 
 from pathlib import Path as p
-import os #still unused
-import platform #detects platform, still unused
+import shutil
 
 folder = p.home() / "Downloads"
+wall_folder = folder / "Wallpapers"
+
+if wall_folder.is_dir():
+    pass
+else:
+    wall_folder.mkdir()
+
 
 type = ("*wall.jpg", "*wall.png", "*wall.webp", "*wall.jpeg",)
 
 for t in type:
     for i in folder.glob(t):
-        print (i)
+        shutil.move(folder/i, wall_folder)
+        print(i) #if this prints anything, this didnt work
